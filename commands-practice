@@ -1,0 +1,142 @@
+How to create a file?
+touch fileName
+
+How to check the permission of a file in linux?
+ls -l fileName
+returns: -rw-rw-r--
+First character means if its a file or folder
+- means regular file
+next 3 permission for owner, permission for group, permission for others
+Owner can read and write, group can read and write and others can only read
+
+how to check the permission of a folder in linux?
+ls -ld fileName
+returns: drwxrwxr-x
+d means directory
+owner can read, write, execute
+group can read, write, execute
+others can only read and execute
+
+4 = read
+2 = write
+1 = execute
+
+How to override file permission
+chmod 777 fileName 
+
+How to check if a system is exist or not?
+systemctl list-unit-files | grep rabbitmq
+
+How to check the status of a service?
+systemctl status ssh
+
+How to start a service?
+systemctl start ssh
+
+How to stop a service?
+systemctl stop ssh
+
+How to configure a service which will enable when the system boot up?
+sudo systemctl enable service-name
+
+How to configure a service which remain disable when the system boot up?
+sudo systemctl disable service-name
+
+
+How to restart a service?
+sudo systemctl restart service-name
+
+
+Where to check all the  system configuration?
+cd /etc/systemd/system
+
+How to install any software?
+sudo apt install nginx
+
+
+How to see the system dashboard?
+top
+
+How to see all process with details?
+ps aux
+
+How to see a specific process with details?
+ps aux | grep processname
+
+How to see how much disk space is available?
+df -h
+
+How to check the size of specific directory?
+du -sh folder path (du -sh /var/log)
+
+How to see which service runs on which port?
+netstat -tulpn / ss -tulpn
+
+How to see which service runs on 80 port?
+netstat -tulpn | grep :80
+
+Problem: Your web server is running slowly.
+
+# 1. Check overall system load
+top
+
+# 2. See if your web server process is running
+ps aux | grep nginx
+
+# 3. Check if you're running out of disk space for logs
+df -h /var/log
+
+# 4. Check how big the log files have grown
+du -sh /var/log/nginx/
+
+# 5. Check if the web server is listening on the correct port
+netstat -tulpn | grep :80
+# or
+ss -tulpn | grep :80
+
+# 6. Check active connections to your web server
+netstat -tupn | grep nginx
+
+
+How to connect a server using ssh
+ssh -p portNumber userName@dns
+
+Signal	Number	Purpose	Common Use
+SIGTERM	15	Terminate gracefully	Ask nicely to shut down
+SIGKILL	9	Terminate immediately	Force kill, no cleanup
+SIGHUP	1	Hang up	Reload configuration
+SIGSTOP	17,19,23	Pause execution	Freeze a process
+SIGCONT	19,18,25	Continue execution	Resume a paused process
+
+How to kill a process?
+kill -15 processId
+kill -9 processId
+
+How to advance process kill?
+pkill processName (pkill firefox)
+
+How to see logs in a log file?
+tail -f fileName
+
+How to see a service log?
+journalctl -u serviceName
+
+How to check disk usage?
+df -h | grep -v tmpfs
+
+How to check memory usage?
+free -h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
